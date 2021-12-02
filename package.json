@@ -39,7 +39,7 @@
   "dependencies": {
     "escape-string-regexp": "^4.0.0",
     "fs-extra": "^9.0.1",
-    "jasmine": "^3.6.3",
+    "jasmine": "^3.6.8",
     "minimatch": "^3.0.4",
     "stack-trace": "0.0.10",
     "tslib": "^2.0.3",
