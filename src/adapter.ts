@@ -166,7 +166,12 @@ export class JasmineAdapter implements TestAdapter, IDisposable {
 				} else {
 
 					if (this.log.enabled) this.log.info(`Received tests for ${message.file} from worker`);
+					// ES Module file names resolve to 'file:///...' format
+					// procSpecDir processes specDir to the same format and performs the replace again
+					// This should be safe as the intersection of their types is empty
+					const procSpecDir = vscode.Uri.file(config.specDir).toString(true);
 					message.label = message.file!.replace(config.specDir, '');
+					message.label = message.label.replace(procSpecDir, '');
 					const file = message.file!;
 					if (suites[file]) {
 						suites[file].children = suites[file].children.concat(message.children);
